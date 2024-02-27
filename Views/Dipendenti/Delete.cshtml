@@ -1,0 +1,17 @@
+﻿@model esercizioS17L1.Models.Dipendente
+
+<h2>Conferma Eliminazione</h2>
+
+<p>Sei sicuro di voler eliminare il seguente dipendente?</p>
+
+<div>
+    <h4>Nome: @Model.Nome</h4>
+    <h4>Cognome: @Model.Cognome</h4>
+</div>
+
+<form action="@Url.Action("DeleteConfirmed", "Dipendenti", new { id = Model.ID })" method="post">
+    <input type="submit" value="Elimina" class="btn btn-danger" />
+    <a href="@Url.Action("Index", "Dipendenti")" class="btn btn-default">Annulla</a>
+</form>
+
+

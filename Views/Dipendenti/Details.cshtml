@@ -1,0 +1,22 @@
+﻿@model esercizioS17L1.Models.Dipendente
+
+@{
+    ViewBag.Title = "Dettagli Dipendente";
+}
+
+<h2>Dettagli Dipendente</h2>
+
+<div>
+    <h4>Nome: @Model.Nome</h4>
+    <h4>Cognome: @Model.Cognome</h4>
+    <h4>Indirizzo: @Model.Indirizzo</h4>
+    <h4>Codice Fiscale: @Model.CodiceFiscale</h4>
+    <h4>Coniugato: @Model.Coniugato</h4>
+    <h4>Numero Figli a Carico: @Model.NumeroFigliACarico</h4>
+    <h4>Mansione: @Model.Mansione</h4>
+</div>
+
+<div>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Torna alla lista", "Index")
+</div>

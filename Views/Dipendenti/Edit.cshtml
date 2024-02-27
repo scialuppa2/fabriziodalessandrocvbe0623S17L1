@@ -1,0 +1,62 @@
+﻿@model esercizioS17L1.Models.Dipendente
+
+@{
+    ViewBag.Title = "Modifica Dipendente";
+}
+
+<h2>Modifica Dipendente</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome)
+        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cognome)
+        @Html.TextBoxFor(model => model.Cognome, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Cognome)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Indirizzo)
+        @Html.TextBoxFor(model => model.Indirizzo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Indirizzo)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CodiceFiscale)
+        @Html.TextBoxFor(model => model.CodiceFiscale, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CodiceFiscale)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Coniugato)
+        @Html.CheckBoxFor(model => model.Coniugato)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumeroFigliACarico)
+        @Html.TextBoxFor(model => model.NumeroFigliACarico, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NumeroFigliACarico)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mansione)
+        @Html.TextBoxFor(model => model.Mansione, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Mansione)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salva Modifiche" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Torna alla lista", "Index")
+</div>

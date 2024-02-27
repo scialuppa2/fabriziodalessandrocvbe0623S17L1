@@ -1,0 +1,17 @@
+﻿@model esercizioS17L1.Models.Pagamento
+
+<h2>Conferma Eliminazione</h2>
+
+<p>Sei sicuro di voler eliminare il seguente pagamento?</p>
+
+<div>
+    <h4>Periodo: @Model.Periodo</h4>
+    <h4>Ammontare: @Model.Ammontare</h4>
+    <h4>Stipendio: @(Model.TipologiaPagamento)</h4>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Pagamenti", new { id = Model.ID }, FormMethod.Post))
+{
+    <input type="submit" value="Elimina" class="btn btn-danger" />
+    @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-default" })
+}

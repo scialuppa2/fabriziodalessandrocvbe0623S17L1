@@ -1,0 +1,48 @@
+﻿@model esercizioS17L1.Models.Pagamento
+
+@{
+    ViewBag.Title = "Modifica Pagamento";
+}
+
+<h2>Modifica Pagamento</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Periodo)
+        @Html.TextBoxFor(model => model.Periodo, "{0:yyyy-MM-dd}", new { @class = "form-control datepicker" })
+        @Html.ValidationMessageFor(model => model.Periodo)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ammontare)
+        @Html.TextBoxFor(model => model.Ammontare, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Ammontare)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TipologiaPagamento, "Tipologia di pagamento", new { @class = "control-label" })
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(model => model.TipologiaPagamento, "Stipendio") Stipendio
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(model => model.TipologiaPagamento, "Acconto") Acconto
+            </label>
+        </div>
+        @Html.ValidationMessageFor(model => model.TipologiaPagamento)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Salva Modifiche" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Torna alla lista", "Index")
+</div>

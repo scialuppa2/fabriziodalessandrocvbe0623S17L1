@@ -1,0 +1,42 @@
+﻿@model IEnumerable<esercizioS17L1.Models.Dipendente>
+
+<h2>Anagrafica dei Dipendenti</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Indirizzo</th>
+            <th>Codice Fiscale</th>
+            <th>Coniugato</th>
+            <th>Numero Figli a Carico</th>
+            <th>Mansione</th>
+            <th></th> <!-- Aggiungi una colonna per le azioni -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dipendente in Model)
+        {
+            <tr>
+                <td>@dipendente.Nome</td>
+                <td>@dipendente.Cognome</td>
+                <td>@dipendente.Indirizzo</td>
+                <td>@dipendente.CodiceFiscale</td>
+                <td>@(dipendente.Coniugato ? "Sì" : "No")</td>
+                <td>@dipendente.NumeroFigliACarico</td>
+                <td>@dipendente.Mansione</td>
+                <td>
+                    @Html.ActionLink("Dettagli", "Details", new { id = dipendente.ID }) |
+                    @Html.ActionLink("Modifica", "Edit", new { id = dipendente.ID }) |
+                    @Html.ActionLink("Elimina", "Delete", new { id = dipendente.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Aggiungi Dipendente", "Create")
+</p>
+

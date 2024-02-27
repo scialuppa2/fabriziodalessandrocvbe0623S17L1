@@ -1,0 +1,14 @@
+﻿@model esercizioS17L1.Models.Pagamento
+
+<h2>Dettagli Pagamento</h2>
+
+<div>
+    <h4>Periodo: @Model.Periodo.ToString("dd/MM/yyyy")</h4>
+    <h4>Ammontare: @Model.Ammontare</h4>
+    <h4>Tipologia: @(Model.TipologiaPagamento)</h4>
+</div>
+
+<div>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Torna alla lista", "Index")
+</div>
