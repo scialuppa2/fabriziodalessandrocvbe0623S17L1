@@ -8,9 +8,8 @@
             <th>Periodo</th>
             <th>Ammontare</th>
             <th>Tipologia</th>
-            <th>Nome Dipendente</th> <!-- Aggiungi una colonna per il nome del dipendente -->
-            <th>Cognome Dipendente</th> <!-- Aggiungi una colonna per il cognome del dipendente -->
-            <th></th> <!-- Aggiungi una colonna per le azioni -->
+            <th>Dipendente</th> <!-- Nuova colonna per il nome del dipendente -->
+            <th></th> <!-- Azioni -->
         </tr>
     </thead>
     <tbody>
@@ -20,8 +19,7 @@
                 <td>@pagamento.Periodo.ToString("dd/MM/yyyy")</td>
                 <td>@pagamento.Ammontare</td>
                 <td>@pagamento.TipologiaPagamento</td>
-                <td>@pagamento.Dipendente.Nome</td> <!-- Mostra il nome del dipendente -->
-                <td>@pagamento.Dipendente.Cognome</td> <!-- Mostra il cognome del dipendente -->
+                <td>@(DipendenteRepository.GetDipendenteById(pagamento.DipendenteID)?.NomeCompleto)</td> <!-- Mostra il nome del dipendente -->
                 <td>
                     @Html.ActionLink("Dettagli", "Details", new { id = pagamento.ID }) |
                     @Html.ActionLink("Modifica", "Edit", new { id = pagamento.ID }) |

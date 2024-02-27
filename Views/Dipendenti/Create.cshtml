@@ -6,56 +6,55 @@
 
 <h2>Nuovo Dipendente</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-
+<form asp-controller="Dipendenti" asp-action="Create" method="post">
     <div class="form-group">
-        @Html.LabelFor(model => model.Nome)
-        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Nome)
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Cognome)
-        @Html.TextBoxFor(model => model.Cognome, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Cognome)
+        <label asp-for="Cognome" class="control-label"></label>
+        <input asp-for="Cognome" class="form-control" />
+        <span asp-validation-for="Cognome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Indirizzo)
-        @Html.TextBoxFor(model => model.Indirizzo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Indirizzo)
+        <label asp-for="Indirizzo" class="control-label"></label>
+        <input asp-for="Indirizzo" class="form-control" />
+        <span asp-validation-for="Indirizzo" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CodiceFiscale)
-        @Html.TextBoxFor(model => model.CodiceFiscale, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.CodiceFiscale)
+        <label asp-for="CodiceFiscale" class="control-label"></label>
+        <input asp-for="CodiceFiscale" class="form-control" />
+        <span asp-validation-for="CodiceFiscale" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Coniugato)
-        @Html.CheckBoxFor(model => model.Coniugato)
+        <label asp-for="Coniugato" class="control-label"></label>
+        <input type="checkbox" asp-for="Coniugato" class="form-check-input" />
+        <span asp-validation-for="Coniugato" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="NumeroFigliACarico" class="control-label"></label>
+        <input asp-for="NumeroFigliACarico" class="form-control" />
+        <span asp-validation-for="NumeroFigliACarico" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.NumeroFigliACarico)
-        @Html.TextBoxFor(model => model.NumeroFigliACarico, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.NumeroFigliACarico)
+        <label asp-for="Mansione" class="control-label"></label>
+        <input asp-for="Mansione" class="form-control" />
+        <span asp-validation-for="Mansione" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Mansione)
-        @Html.TextBoxFor(model => model.Mansione, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Mansione)
+        <button type="submit" class="btn btn-primary">Crea Dipendente</button>
     </div>
-
-    <div class="form-group">
-        <input type="submit" value="Crea Dipendente" class="btn btn-primary" />
-    </div>
-}
+</form>
 
 <div>
-    @Html.ActionLink("Torna alla lista", "Index")
+    <a asp-controller="Dipendenti" asp-action="Index">Torna alla lista</a>
 </div>

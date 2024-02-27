@@ -5,6 +5,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Nome</th>
             <th>Cognome</th>
             <th>Indirizzo</th>
@@ -12,13 +13,13 @@
             <th>Coniugato</th>
             <th>Numero Figli a Carico</th>
             <th>Mansione</th>
-            <th></th> <!-- Aggiungi una colonna per le azioni -->
         </tr>
     </thead>
     <tbody>
         @foreach (var dipendente in Model)
         {
             <tr>
+                <td>@dipendente.ID</td>
                 <td>@dipendente.Nome</td>
                 <td>@dipendente.Cognome</td>
                 <td>@dipendente.Indirizzo</td>

@@ -9,9 +9,7 @@
     <h4>Cognome: @Model.Cognome</h4>
 </div>
 
-<form action="@Url.Action("DeleteConfirmed", "Dipendenti", new { id = Model.ID })" method="post">
-    <input type="submit" value="Elimina" class="btn btn-danger" />
-    <a href="@Url.Action("Index", "Dipendenti")" class="btn btn-default">Annulla</a>
+<form asp-controller="Dipendenti" asp-action="DeleteConfirmed" asp-route-id="@Model.ID" method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-controller="Dipendenti" asp-action="Index" class="btn btn-default">Annulla</a>
 </form>
-
-

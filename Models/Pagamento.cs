@@ -20,7 +20,7 @@ namespace esercizioS17L1.Models
         [Required(ErrorMessage = "Seleziona una tipologia di pagamento.")]
         [Display(Name = "Tipologia")]
         public string TipologiaPagamento { get; set; }
-        public virtual Dipendente Dipendente { get; set; }
+        
     }
 
 
@@ -29,6 +29,7 @@ namespace esercizioS17L1.Models
     public static class PagamentoRepository
     {
         private static List<Pagamento> pagamenti = new List<Pagamento>();
+        private static int prossimoID = 1;
 
         public static List<Pagamento> GetPagamenti()
         {
@@ -37,9 +38,15 @@ namespace esercizioS17L1.Models
 
         public static void AddPagamento(Pagamento pagamento)
         {
+            pagamento.ID = prossimoID++;
+            // Imposta l'ID del dipendente nel pagamento
+            pagamento.DipendenteID = pagamento.DipendenteID;
+
             // Aggiungi il nuovo pagamento alla lista
             pagamenti.Add(pagamento);
         }
+
+
 
         public static Pagamento GetPagamentoById(int id)
         {

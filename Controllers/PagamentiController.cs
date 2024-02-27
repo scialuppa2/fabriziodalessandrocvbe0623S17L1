@@ -1,5 +1,6 @@
 ﻿using esercizioS17L1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace esercizioS17L1.Controllers
@@ -14,11 +15,13 @@ namespace esercizioS17L1.Controllers
         }
 
         // Azione per creare un nuovo pagamento per un dipendente specifico
-        public ActionResult Create(int dipendenteID)
+        public ActionResult Create()
         {
-            ViewBag.DipendenteID = dipendenteID; // Passa l'ID del dipendente alla vista
+            var dipendenti = DipendenteRepository.GetDipendenti();
+            ViewBag.DipendentiList = new SelectList(dipendenti, "ID", "NomeCompleto");
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Create(Pagamento pagamento)

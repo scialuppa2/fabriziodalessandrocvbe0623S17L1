@@ -26,8 +26,11 @@
 
         public static void AddDipendente(Dipendente dipendente)
         {
+            // Assegnazione di un ID univoco basato sul numero di dipendenti già presenti
+            dipendente.ID = dipendenti.Count > 0 ? dipendenti.Max(d => d.ID) + 1 : 1;
             dipendenti.Add(dipendente);
         }
+
 
         public static Dipendente GetDipendenteById(int id)
         {
